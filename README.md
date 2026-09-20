@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ iTan-ReclaimSpace (iTan-RS)
+# ⚡iTan-ReclaimSpace (iTan-RS)
 ### Autonomous Content-Addressable Hardlink & Storage Reclamation Engine
 
 </div>
