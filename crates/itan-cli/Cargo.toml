@@ -1,0 +1,23 @@
+[package]
+name        = "itan-cli"
+description = "iTan-ReclaimSpace CLI — command-line front-end for the reclamation engine"
+version.workspace    = true
+edition.workspace    = true
+rust-version.workspace = true
+
+[[bin]]
+name = "itan"
+path = "src/main.rs"
+
+[features]
+default = []
+windows-ntfs = ["itan-core/windows-ntfs"]
+linux-cow = ["itan-core/linux-cow"]
+macos-apfs = ["itan-core/macos-apfs"]
+
+[dependencies]
+itan-core  = { path = "../itan-core" }
+clap       = { workspace = true }
+log        = { workspace = true }
+env_logger = { workspace = true }
+thiserror  = { workspace = true }

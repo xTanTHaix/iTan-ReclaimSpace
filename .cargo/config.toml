@@ -1,0 +1,4 @@
+[build]
+# Treat every warning as a hard error across all targets to prevent lint debt accumulation.
+# This mirrors the CI gate so local builds behave identically to the pipeline.
+rustflags = ["-D", "warnings"]

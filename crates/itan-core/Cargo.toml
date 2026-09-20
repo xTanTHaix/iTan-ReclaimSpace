@@ -1,0 +1,43 @@
+[package]
+name        = "itan-core"
+description = "Content-Addressable Hardlink & Storage Reclamation Engine — core library"
+version.workspace    = true
+edition.workspace    = true
+rust-version.workspace = true
+
+[features]
+default = []
+# Enables Win32 NTFS API: MoveFileExW, FSCTL_*, SetFileAttributesW, USN Journal
+windows-ntfs = ["dep:windows-sys"]
+# Enables Linux CoW: FICLONE ioctl, renameat2, posix_fadvise
+linux-cow = ["dep:nix"]
+# Enables macOS APFS: clonefile(2)
+macos-apfs = []
+
+[dependencies]
+blake3            = { workspace = true }
+uuid              = { workspace = true }
+crossbeam-channel = { workspace = true }
+dashmap           = { workspace = true }
+thiserror         = { workspace = true }
+log               = { workspace = true }
+instant           = { workspace = true }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", optional = true, features = [
+    "Win32_Foundation",
+    "Win32_Storage_FileSystem",
+    "Win32_System_Ioctl",
+    "Win32_System_IO",
+    "Win32_Security",
+] }
+
+[target.'cfg(unix)'.dependencies]
+nix  = { version = "0.29", optional = true, features = ["fs", "ioctl"] }
+libc = "0.2"
+
+[dev-dependencies]
+# Temporary directory creation for isolated tests
+tempfile = "3"
+# Direct digest computation in integration tests
+blake3 = { workspace = true }

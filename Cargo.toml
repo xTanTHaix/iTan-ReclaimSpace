@@ -1,0 +1,41 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/itan-core",
+    "crates/itan-cli",
+]
+
+[workspace.package]
+version     = "1.0.0"
+edition     = "2024"
+rust-version = "1.85"
+
+[workspace.dependencies]
+# Hashing — SIMD-accelerated, streaming-capable
+blake3          = "1"
+# UUID-v4 for tmp staging filenames
+uuid            = { version = "1", features = ["v4"] }
+# Lock-free multi-producer/multi-consumer channel for DeferRetryQueue
+crossbeam-channel = "0.5"
+# Concurrent HashMap for inode cache (Phase 3)
+dashmap         = "6"
+# Error handling
+thiserror       = "2"
+# Logging facade
+log             = "0.4"
+# Structured logging to stderr
+env_logger      = "0.11"
+# CLI argument parsing
+clap            = { version = "4", features = ["derive"] }
+# High-resolution timing for GC cooldown + retry backoff
+instant         = "0.1"
+
+[profile.release]
+lto           = "thin"
+codegen-units = 1
+opt-level     = 3
+strip         = "symbols"
+
+[profile.bench]
+inherits  = "release"
+debug     = true   # Keep symbols for profiling
