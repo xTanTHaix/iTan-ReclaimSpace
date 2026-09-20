@@ -347,7 +347,7 @@ If **iTan-ReclaimSpace** helped reclaim gigabytes of disk space across your deve
 <div align="center">
 
 <a href="https://ko-fi.com/xtanthaix" target="_blank">
-  <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Ko-fi" height="24">
+  <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Ko-fi" height="36">
 </a>
 
 <br><br>
