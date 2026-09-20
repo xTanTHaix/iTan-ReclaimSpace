@@ -25,7 +25,7 @@
 
 <br>
 
-[**User Guide**](GUIDE.md) • [**Architecture Sign-Off**](Architecture%20Sign-Off%20&%20Verification.md) • [**Security Assessment**](Code%20Security%20Assessment%20Framework.md) • [**Engineering Spec**](iTan-ReclaimSpace%20v1.0.md)
+[**User Guide**](GUIDE.md) • [**Architecture Sign-Off**](Architecture%20Sign-Off%20&%20Verification.md) • [**Security Assessment**](Code%20Security%20Assessment%20Framework.md) •
 
 </div>
 
